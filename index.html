@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Traceroute.js test</title>
+		<script type="text/javascript" src="traceroute.js"></script>
+	</head>
+	<body>
+		<input type="text" id="host" value="google.com" />
+		<button id="trace">Traceroute!</button>
+		<div>
+			<textarea id="result" rows="20" cols="40"></textarea>
+		</div>
+		<script type="text/javascript" charset="utf-8">
+			var q = function(id) { return document.getElementById(id) };
+			q('trace').addEventListener('click', function(e) {
+				q('result').innerHTML = 'Wait...';
+				q('result').innerHTML = traceroute(q('host').value);
+			}, false);
+		</script>
+	</body>
+</html>
