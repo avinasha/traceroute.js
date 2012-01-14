@@ -10,11 +10,13 @@
 		<div>
 			<textarea id="result" rows="20" cols="40"></textarea>
 		</div>
+		<div id="used"></div>
 		<script type="text/javascript" charset="utf-8">
 			var q = function(id) { return document.getElementById(id) };
 			q('trace').addEventListener('click', function(e) {
 				q('result').innerHTML = 'Wait...';
 				q('result').innerHTML = traceroute(q('host').value);
+				q('used').innerHTML   = 'Used ' + traceroute.used;
 			}, false);
 		</script>
 	</body>

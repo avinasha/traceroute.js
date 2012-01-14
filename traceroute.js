@@ -2,14 +2,16 @@ var traceroute = function(adr) {
   var order = ['activex', 'java'];
   for (var i = 0, _len = order.length; i < _len; i++) {
     backend = order[i];
-    if (traceroute[backend].test)
+    if (traceroute[backend].test) {
+      traceroute.used = backend;
       return traceroute[backend].trace(adr);
+    }
   }
 };
 traceroute.activex = {
   test: 'ActiveXObject' in window,
   trace: function(adr) {
-    return new ActiveXObject('WScript.Shell').Exec("%comspec% /c tracert.exe " + adr);
+    return new ActiveXObject('WScript.Shell').Exec('%comspec% /c tracert.exe ' + adr);
   }
 };
 traceroute.java = {
