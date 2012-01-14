@@ -13,7 +13,7 @@ traceroute.activex = {
   }
 };
 traceroute.java = {
-  test: navigator.javaEnabled,
+  test: navigator.javaEnabled(),
   trace: function(adr) {
     var ex, ln, pr, rd, result;
     ex = /windows/.test(java.lang.System.getProperty('os.name').toLowerCase()) ? '%comspec% /c tracert.exe' : 'traceroute';
